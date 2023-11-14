@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeControllers::class, 'test']);
-Route::get('create-arti')
+Route::get('/', [\App\Http\Controllers\HomeControllers::class, 'index']);
+Route::get('/apple',[\App\Http\Controllers\HomeControllers::class, 'getProducts']);
+
+

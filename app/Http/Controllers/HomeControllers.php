@@ -2,11 +2,32 @@
 
 namespace App\Http\Controllers;
 
-class HomeControllers extends Controller
+use App\Models\Products;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+
+class HomeControllers
 {
-    public function test()
+    public function index(Request $request)
     {
-        echo 'Hello';
+        $makingDate = Carbon::create('2018')->timestamp;
+        $products = Products::create([
+            'title' => $request->input('name'),
+            'price' => $request->input('price'),
+            'is_active' => true,
+            //'making_date' => $makingDate
+        ]);
+
+    }
+    public function getProducts()
+    {
+        $products = Products::all();
+        foreach ($products as $product) {
+            echo "<br>" . $product['title'];
+            echo "<br>" . $product['price'];
+            echo "<br>" . $product['is_active'];
+            echo "<br>" . $product['create_at'];
+            echo "<hr>";
+        }
     }
 }
-public function createArticle()
