@@ -10,7 +10,6 @@ class Products extends Model
         'title',
         'price',
         'is_active',
-        'making_date',
         'created_at',
         'updated_at'
     ];

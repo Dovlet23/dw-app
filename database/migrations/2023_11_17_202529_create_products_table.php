@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 16);
+            $table->string('title');
             $table->bigInteger('price');
             $table->boolean('is_active');
             $table->timestamp('making_date');
             $table->timestamps();
         });
-    }
 
+
+
+    }
     /**
      * Reverse the migrations.
      */
@@ -29,3 +31,5 @@ return new class extends Migration
         Schema::dropIfExists('products');
     }
 };
+
+

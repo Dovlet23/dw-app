@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeControllers::class, 'index']);
 Route::get('/apple',[\App\Http\Controllers\HomeControllers::class, 'getProducts']);
-
+//Route::post(' index', [\App\Http\Controllers\HomeControllers::class, 'index']);
 
