@@ -11,25 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->bigInteger('price');
-            $table->boolean('is_active');
-            $table->timestamp('making_date');
-            $table->timestamps();
+        Schema::table('currency', function (Blueprint $table) {
+            $table->float('price')->nullable();
         });
-
-
-
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::table('currency', function (Blueprint $table) {
+            $table->dropColumn('price');
+        });
     }
 };
-
-
