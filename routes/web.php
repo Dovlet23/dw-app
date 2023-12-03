@@ -20,4 +20,10 @@ use Illuminate\Support\Facades\Route;
     Route::get('/create', [\App\Http\Controllers\CurrencyController::class, 'create']);
     Route::post('/store', [\App\Http\Controllers\CurrencyController::class, 'store']);
 
+    Route::prefix('articles')->group(function (){
+        Route::get('/',[\App\Http\Controllers\CryptoController::class, 'index'])->name('index');
+        Route::get('create', [\App\Http\Controllers\CryptoController::class, 'create'])->name('create');
+        Route::post('store', [\App\Http\Controllers\CryptoController::class, 'store'])->name('store');
+    });
+
 

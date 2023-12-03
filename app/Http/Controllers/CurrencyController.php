@@ -20,7 +20,10 @@ class CurrencyController extends Controller
 
     public function store(Request $request)
     {
-
+        $request->validate([
+            'name'=> ['required', 'min:3', 'max:6'],//валидация мин и мах значений
+            'price' => 'required'
+        ]);
         $currency = Currency::create([
             'name' => $request->input('name'),
             'code' => $request->input('code'),
